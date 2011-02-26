@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunCSharp", "RunCSharp\RunCSharp.csproj", "{CA1262C0-2368-462E-A7FB-7BDD5237139D}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RunCSharp.Web", "RunCSharp.Web\", "{38BFC8E7-AE0C-4EF4-A143-6AC96C01A055}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/RunCSharp.Web"
+		Debug.AspNetCompiler.PhysicalPath = "RunCSharp.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\RunCSharp.Web\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/RunCSharp.Web"
+		Release.AspNetCompiler.PhysicalPath = "RunCSharp.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\RunCSharp.Web\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1638"
+		DefaultWebSiteLanguage = "Visual C#"
+		ProjOutputReferences = "{CA1262C0-2368-462E-A7FB-7BDD5237139D}|ClientBin|false;"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA1262C0-2368-462E-A7FB-7BDD5237139D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA1262C0-2368-462E-A7FB-7BDD5237139D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA1262C0-2368-462E-A7FB-7BDD5237139D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA1262C0-2368-462E-A7FB-7BDD5237139D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BFC8E7-AE0C-4EF4-A143-6AC96C01A055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BFC8E7-AE0C-4EF4-A143-6AC96C01A055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BFC8E7-AE0C-4EF4-A143-6AC96C01A055}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BFC8E7-AE0C-4EF4-A143-6AC96C01A055}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

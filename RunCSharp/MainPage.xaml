@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="RunCSharp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:RunCSharp.Controls"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"></local:BooleanToVisibilityConverter>
+    </UserControl.Resources>
+
+    <StackPanel x:Name="LayoutRoot" Background="White">
+
+        <ListBox 
+            x:Name="HistoryBox" 
+            ItemsSource="{Binding History}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBox 
+                            Text="{Binding InputText}" 
+                            TextWrapping="Wrap" 
+                            AcceptsReturn="True" 
+                            KeyDown="InputBox_KeyDown"
+                            Grid.Column="0"
+                            Grid.Row="0"></TextBox>
+                        <ListBox 
+            x:Name="HistoryBox" 
+            ItemsSource="{Binding Errors}"
+                            Grid.Column="0"
+                            Grid.Row="1">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBox 
+                            Text="{Binding Text, Mode=OneWay}" 
+                            Visibility="{Binding HasErrors, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            BorderThickness="0"
+                            Background="Transparent"                            
+                            FontSize="14"
+                            Foreground="Red"
+                            ></TextBox>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <TextBox 
+                            Text="{Binding OutputText, Mode=OneWay}" 
+                            Visibility="{Binding HasOutput, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            BorderThickness="0"
+                            Background="Transparent"                            
+                            FontFamily="Times New Roman"
+                            FontSize="16"
+                            Foreground="Blue"
+                            Grid.Column="0"
+                            Grid.Row="2"></TextBox>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </StackPanel>
+
+</UserControl>
