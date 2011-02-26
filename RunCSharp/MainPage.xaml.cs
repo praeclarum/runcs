@@ -25,8 +25,10 @@ namespace RunCSharp
 
             History = new ObservableCollection<RunBlock>();
 
-            History.Add(new RunBlock("Math.Abs (-42);"));
-            History.Add(new RunBlock("Math.Sin (Math.Pi / 2);"));
+            History.Add(new RunBlock("Math.Abs(-42);"));
+            History.Add(new RunBlock("Math.Sin(Math.PI / 6);"));
+			History.Add(new RunBlock("class Fact { public int Run(int n) { return n <= 0 ? 1 : n*Run(n-1); } }"));
+			History.Add(new RunBlock("new Fact().Run(5);"));
 
             InitializeComponent();
             LayoutRoot.DataContext = this;
@@ -35,11 +37,12 @@ namespace RunCSharp
         private void InputBox_KeyDown(object sender, KeyEventArgs e)
         {
             var tb = (TextBox)sender;
-            var block = (RunBlock)tb.DataContext;
-            block.InputText = tb.Text;
+            var block = (RunBlock)tb.DataContext;            
 
             if (e.Key == Key.Enter)
             {
+				block.InputText = tb.Text;
+
                 if (block.Run(_runner))
                 {
                     e.Handled = true;

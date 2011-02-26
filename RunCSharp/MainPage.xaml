@@ -5,20 +5,39 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:RunCSharp.Controls"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400">
+    d:DesignHeight="300" d:DesignWidth="400"
+          FontFamily="Arial"
+             FontSize="12">
 
     <UserControl.Resources>
-        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"></local:BooleanToVisibilityConverter>
+        <local:BooleanToVisibilityConverter x:Key="B2V"></local:BooleanToVisibilityConverter>
     </UserControl.Resources>
 
     <StackPanel x:Name="LayoutRoot" Background="White">
 
+        <StackPanel.Resources>
+            <Style  x:Key="myLBStyle" TargetType="ListBoxItem">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                            <GradientStop Color="#FFEEEEEE" Offset="0"/>
+                            <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Foreground" Value="DarkSlateGray" />
+            </Style>
+        </StackPanel.Resources>
+
         <ListBox 
             x:Name="HistoryBox" 
-            ItemsSource="{Binding History}">
+            ItemsSource="{Binding History}"
+            ItemContainerStyle="{StaticResource myLBStyle}"
+            BorderThickness="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
+
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
@@ -27,41 +46,51 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
+                        
                         <TextBox 
-                            Text="{Binding InputText}" 
+                            Text="{Binding InputText}"
+                            FontSize="14"
                             TextWrapping="Wrap" 
                             AcceptsReturn="True" 
                             KeyDown="InputBox_KeyDown"
                             Grid.Column="0"
                             Grid.Row="0"></TextBox>
                         <ListBox 
-            x:Name="HistoryBox" 
-            ItemsSource="{Binding Errors}"
+                            ItemsSource="{Binding Errors}"
+                            Visibility="{Binding HasErrors, Converter={StaticResource B2V}}"
                             Grid.Column="0"
                             Grid.Row="1">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBox 
-                            Text="{Binding Text, Mode=OneWay}" 
-                            Visibility="{Binding HasErrors, Converter={StaticResource BooleanToVisibilityConverter}}"
-                            BorderThickness="0"
-                            Background="Transparent"                            
-                            FontSize="14"
-                            Foreground="Red"
-                            ></TextBox>
+                                        Text="{Binding Text, Mode=OneWay}"                                         
+                                        BorderThickness="0"
+                                        Background="Transparent"                            
+                                        FontSize="14"
+                                        Foreground="Red"
+                                        ></TextBox>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <TextBox 
-                            Text="{Binding OutputText, Mode=OneWay}" 
-                            Visibility="{Binding HasOutput, Converter={StaticResource BooleanToVisibilityConverter}}"
-                            BorderThickness="0"
-                            Background="Transparent"                            
-                            FontFamily="Times New Roman"
-                            FontSize="16"
-                            Foreground="Blue"
+                        <StackPanel
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            Visibility="{Binding HasOutput, Converter={StaticResource B2V}}"
                             Grid.Column="0"
-                            Grid.Row="2"></TextBox>
+                            Grid.Row="2">
+                            <TextBox 
+                                Text="{Binding OutputText}"
+                                BorderThickness="0"
+                                Background="Transparent"                            
+                                FontWeight="Bold"
+                                FontSize="16"
+                                ></TextBox>
+                            <TextBlock 
+                                Text="{Binding OutputTypeName}" 
+                                FontSize="12"
+                                Foreground="DarkGray"
+                                ></TextBlock>
+                        </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

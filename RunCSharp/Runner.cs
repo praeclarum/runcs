@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Mono.CSharp;
 
 namespace RunCSharp
 {
+	/// <summary>
+	/// Runs C# code by wrapping the Mono.CSharp.Evaluator
+	/// </summary>
     public class Runner
     {
         Report _report;
@@ -19,6 +13,9 @@ namespace RunCSharp
         Evaluator _eval;
         Action<AbstractMessage> _printer;
 
+		/// <summary>
+		/// Initializes the evaluator and includes a few basic System libraries
+		/// </summary>
         public Runner()
         {
             _report = new Report(new Printer(this));
@@ -30,10 +27,22 @@ namespace RunCSharp
             _eval.Run("using System.Linq;");
         }
 
+		/// <summary>
+		/// The value of the last line of code executed
+		/// </summary>
         public object Result { get; private set; }
 
+		/// <summary>
+		/// Whether the last line of code produced a result
+		/// </summary>
         public bool HasResult { get; private set; }
 
+		/// <summary>
+		/// Run the given input and report any compiler messages to <paramref name="printer"/>
+		/// </summary>
+		/// <param name="input">The line of C# to execute</param>
+		/// <param name="printer">Function to print compiler messages</param>
+		/// <returns>Whether the input is complete or not</returns>
         public bool Run(string input, Action<AbstractMessage> printer) {
             _printer = printer;
             object result = null;
@@ -53,6 +62,9 @@ namespace RunCSharp
             }
         }
 
+		/// <summary>
+		/// Little printer object that forwards all calls to <see cref="Runner"/>.
+		/// </summary>
         class Printer : ReportPrinter
         {
             Runner _r;
@@ -63,7 +75,6 @@ namespace RunCSharp
             public override void Print(AbstractMessage msg)
             {
                 base.Print(msg);
-
                 _r.OnMessage(msg);
             }
         }
