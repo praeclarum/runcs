@@ -1742,65 +1742,131 @@ namespace Mono.CSharp {
 
 		public void EmitAttribute (ConstructorBuilder builder)
 		{
-			if (ResolveBuilder ())
-				builder.SetCustomAttribute (GetCtorMetaInfo (), AttributeEncoder.Empty);
+            try
+            {
+                if (ResolveBuilder())
+                    builder.SetCustomAttribute(GetCtorMetaInfo(), AttributeEncoder.Empty);
+            }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		public void EmitAttribute (MethodBuilder builder)
 		{
+            try
+            {
 			if (ResolveBuilder ())
 				builder.SetCustomAttribute (GetCtorMetaInfo (), AttributeEncoder.Empty);
+                }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		public void EmitAttribute (PropertyBuilder builder)
 		{
+            try
+            {
 			if (ResolveBuilder ())
 				builder.SetCustomAttribute (GetCtorMetaInfo (), AttributeEncoder.Empty);
+            }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		public void EmitAttribute (FieldBuilder builder)
 		{
+            try
+            {
 			if (ResolveBuilder ())
 				builder.SetCustomAttribute (GetCtorMetaInfo (), AttributeEncoder.Empty);
+            }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		public void EmitAttribute (FieldBuilder builder, AttributeEncoder argsEncoded)
 		{
+            try
+            {
 			builder.SetCustomAttribute (GetCtorMetaInfo (), argsEncoded.ToArray ());
+            }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		public void EmitAttribute (TypeBuilder builder)
 		{
+            try
+            {
 			if (ResolveBuilder ())
 				builder.SetCustomAttribute (GetCtorMetaInfo (), AttributeEncoder.Empty);
+            }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		public void EmitAttribute (TypeBuilder builder, AttributeEncoder argsEncoded)
 		{
+            try
+            {
 			builder.SetCustomAttribute (GetCtorMetaInfo (), argsEncoded.ToArray ());
+                }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		public void EmitAttribute (AssemblyBuilder builder)
 		{
+            try
+            {
 			if (ResolveBuilder ())
 				builder.SetCustomAttribute (GetCtorMetaInfo (), AttributeEncoder.Empty);
+            }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		public void EmitAttribute (ModuleBuilder builder)
 		{
+            try
+            {
 			if (ResolveBuilder ())
 				builder.SetCustomAttribute (GetCtorMetaInfo (), AttributeEncoder.Empty);
+            }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		public void EmitAttribute (ParameterBuilder builder)
 		{
+            try
+            {
 			if (ResolveBuilder ())
 				builder.SetCustomAttribute (GetCtorMetaInfo (), AttributeEncoder.Empty);
+            }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		public void EmitAttribute (ParameterBuilder builder, AttributeEncoder argsEncoded)
 		{
+            try
+            {
 			builder.SetCustomAttribute (GetCtorMetaInfo (), argsEncoded.ToArray ());
+            }
+            catch (MethodAccessException)
+            {
+            }
 		}
 
 		ConstructorInfo GetCtorMetaInfo ()

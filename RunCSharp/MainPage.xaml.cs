@@ -29,6 +29,8 @@ namespace RunCSharp
             History.Add(new RunBlock("Math.Sin(Math.PI / 6);"));
 			History.Add(new RunBlock("class Fact { public int Run(int n) { return n <= 0 ? 1 : n*Run(n-1); } }"));
 			History.Add(new RunBlock("new Fact().Run(5);"));
+            History.Add(new RunBlock("var vals = new double[] { 1, 3, 5, 7, 11 };"));
+            History.Add(new RunBlock("from v in vals where v > 3 orderby v descending select 2*v;"));
 
             InitializeComponent();
             LayoutRoot.DataContext = this;

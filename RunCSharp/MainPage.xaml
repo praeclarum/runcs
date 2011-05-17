@@ -11,23 +11,20 @@
 
     <UserControl.Resources>
         <local:BooleanToVisibilityConverter x:Key="B2V"></local:BooleanToVisibilityConverter>
+        <Style  x:Key="myLBStyle" TargetType="ListBoxItem">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                        <GradientStop Color="#FFEEEEEE" Offset="0"/>
+                        <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="DarkSlateGray" />
+        </Style>
     </UserControl.Resources>
 
     <StackPanel x:Name="LayoutRoot" Background="White">
-
-        <StackPanel.Resources>
-            <Style  x:Key="myLBStyle" TargetType="ListBoxItem">
-                <Setter Property="Background">
-                    <Setter.Value>
-                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
-                            <GradientStop Color="#FFEEEEEE" Offset="0"/>
-                            <GradientStop Color="#FFFFFFFF" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="Foreground" Value="DarkSlateGray" />
-            </Style>
-        </StackPanel.Resources>
 
         <ListBox 
             x:Name="HistoryBox" 

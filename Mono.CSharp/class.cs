@@ -1027,7 +1027,7 @@ namespace Mono.CSharp {
 
 				TypeBuilder = Module.CreateBuilder (Name, TypeAttr, type_size);
 			} else {
-				TypeBuilder = Parent.TypeBuilder.DefineNestedType (Basename, TypeAttr, null, type_size);
+				TypeBuilder = Parent.TypeBuilder.DefineNestedType (Basename, TypeAttr);
 			}
 
 			if (DeclaringAssembly.Importer != null)

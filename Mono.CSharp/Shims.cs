@@ -3,6 +3,7 @@ using System.Xml.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Collections;
 
 namespace System
 {
@@ -21,42 +22,85 @@ namespace System.Reflection
 
     public struct CustomAttributeNamedArgument
     {
-        public MemberInfo MemberInfo { get; set; }
-        public CustomAttributeTypedArgument TypedValue { get; set; }
+        public MemberInfo MemberInfo;
+        public CustomAttributeTypedArgument TypedValue;
     }
 
     public class CustomAttributeData
     {
-        public virtual ConstructorInfo Constructor
-        {
-            get
-            {
-                return null;
-            }
-        }
-        public virtual IList<CustomAttributeNamedArgument> NamedArguments
-        {
-            get
-            {
-                return new List<CustomAttributeNamedArgument>();
-            }
-        }
+        public virtual ConstructorInfo Constructor { get; set; }
+
+        public virtual IList<CustomAttributeNamedArgument> NamedArguments { get; set; }
+
         public IList<CustomAttributeTypedArgument> ConstructorArguments { get; private set; }
+
+        static List<CustomAttributeTypedArgument> GetCtorArgs(object o, ConstructorInfo ctor)
+        {
+            var args = new List<CustomAttributeTypedArgument>();
+            var props = ctor.DeclaringType.GetProperties ();
+
+            if (props.Length == args.Count && args.Count == 1)
+            {
+
+            }
+
+            foreach (var p in ctor.GetParameters())
+            {
+                var val = default(object);
+                var ty = typeof(object);
+
+                var prop = props.FirstOrDefault(x => x.Name.ToLowerInvariant() == p.Name.ToLowerInvariant());
+                if (prop == null)
+                {
+                    prop = props.LastOrDefault();
+                }
+
+                if (prop != null)
+                {
+                    val = prop.GetValue(o, null);
+                    ty = prop.PropertyType;                    
+                }
+                args.Add(new CustomAttributeTypedArgument()
+                {
+                    ArgumentType = ty,
+                    Value = val
+                });
+            }
+            return args;
+        }
+
+        static CustomAttributeData GetData (object o) {
+            var ty = o.GetType();
+            var ctor = ty.GetConstructors()[0];
+            return new CustomAttributeData()
+            {
+                Constructor = ctor,
+                ConstructorArguments = GetCtorArgs(o, ctor), 
+            }; 
+        }
+
+        static IList<CustomAttributeData> GetData(object[] objs)
+        {
+            var attrs = from r in objs
+                        select GetData (r);
+            return attrs.ToList();
+        }
+
         public static IList<CustomAttributeData> GetCustomAttributes(Module target)
         {
-            return new List<CustomAttributeData>();
+            return GetData(target.GetCustomAttributes(true));
         }
         public static IList<CustomAttributeData> GetCustomAttributes(Assembly target)
         {
-            return new List<CustomAttributeData>();
+            return GetData(target.GetCustomAttributes(true));
         }
         public static IList<CustomAttributeData> GetCustomAttributes(MemberInfo target)
         {
-            return new List<CustomAttributeData>();
+            return GetData(target.GetCustomAttributes(true));
         }
         public static IList<CustomAttributeData> GetCustomAttributes(ParameterInfo target)
         {
-            return new List<CustomAttributeData>();
+            return GetData(target.GetCustomAttributes(true));
         }
     }
 

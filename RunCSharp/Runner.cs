@@ -22,6 +22,9 @@ namespace RunCSharp
             _settings = new CommandLineParser(_report).ParseArguments (new string[] {});
             _eval = new Evaluator(_settings, _report);
 
+
+            _eval.ReferenceAssembly(typeof(System.Linq.Enumerable).Assembly);
+
             _eval.Run("using System;");
             _eval.Run("using System.Collections.Generic;");
             _eval.Run("using System.Linq;");
