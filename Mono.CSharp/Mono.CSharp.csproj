@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{817CE046-07E8-409D-84BF-A6EA4F2879DE}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mono.CSharp</RootNamespace>
+    <AssemblyName>Mono.CSharp</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_4_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET_4_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Xml.Linq.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="anonymous.cs" />
+    <Compile Include="argument.cs" />
+    <Compile Include="assembly.cs" />
+    <Compile Include="Assembly\AssemblyInfo.cs" />
+    <Compile Include="assign.cs" />
+    <Compile Include="attribute.cs" />
+    <Compile Include="cfold.cs" />
+    <Compile Include="class.cs" />
+    <Compile Include="codegen.cs" />
+    <Compile Include="complete.cs" />
+    <Compile Include="const.cs" />
+    <Compile Include="constant.cs" />
+    <Compile Include="context.cs" />
+    <Compile Include="convert.cs" />
+    <Compile Include="cs-tokenizer.cs" />
+    <Compile Include="decl.cs" />
+    <Compile Include="delegate.cs" />
+    <Compile Include="doc-bootstrap.cs" />
+    <Compile Include="driver.cs" />
+    <Compile Include="dynamic.cs" />
+    <Compile Include="ecore.cs" />
+    <Compile Include="enum.cs" />
+    <Compile Include="eval.cs" />
+    <Compile Include="expression.cs" />
+    <Compile Include="field.cs" />
+    <Compile Include="flowanalysis.cs" />
+    <Compile Include="generic.cs" />
+    <Compile Include="import.cs" />
+    <Compile Include="iterators.cs" />
+    <Compile Include="lambda.cs" />
+    <Compile Include="linq.cs" />
+    <Compile Include="literal.cs" />
+    <Compile Include="location.cs" />
+    <Compile Include="membercache.cs" />
+    <Compile Include="method.cs" />
+    <Compile Include="modifiers.cs" />
+    <Compile Include="MonoSymbolFile.cs" />
+    <Compile Include="MonoSymbolTable.cs" />
+    <Compile Include="MonoSymbolWriter.cs" />
+    <Compile Include="namespace.cs" />
+    <Compile Include="nullable.cs" />
+    <Compile Include="outline.cs" />
+    <Compile Include="parameter.cs" />
+    <Compile Include="pending.cs" />
+    <Compile Include="property.cs" />
+    <Compile Include="reflection.cs" />
+    <Compile Include="report.cs" />
+    <Compile Include="rootcontext.cs" />
+    <Compile Include="roottypes.cs" />
+    <Compile Include="Shims.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="statement.cs" />
+    <Compile Include="support.cs" />
+    <Compile Include="symbolwriter.cs" />
+    <Compile Include="typemanager.cs" />
+    <Compile Include="typespec.cs" />
+    <Compile Include="visit.cs" />
+    <Compile Include="cs-parser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>"$(ProjectDir)..\..\jay\jay" -cvt &lt; "$(ProjectDir)..\..\jay\skeleton.cs" "$(ProjectDir)..\..\mcs\cs-parser.jay" &gt; "$(ProjectDir)cs-parser.cs"</PreBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

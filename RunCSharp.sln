@@ -25,6 +25,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RunCSharp.Web", "RunCSharp.
 		ProjOutputReferences = "{CA1262C0-2368-462E-A7FB-7BDD5237139D}|ClientBin|false;"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.CSharp", "Mono.CSharp\Mono.CSharp.csproj", "{817CE046-07E8-409D-84BF-A6EA4F2879DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{38BFC8E7-AE0C-4EF4-A143-6AC96C01A055}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38BFC8E7-AE0C-4EF4-A143-6AC96C01A055}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{38BFC8E7-AE0C-4EF4-A143-6AC96C01A055}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{817CE046-07E8-409D-84BF-A6EA4F2879DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817CE046-07E8-409D-84BF-A6EA4F2879DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817CE046-07E8-409D-84BF-A6EA4F2879DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817CE046-07E8-409D-84BF-A6EA4F2879DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

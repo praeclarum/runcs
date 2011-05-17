@@ -1,0 +1,7 @@
+*.suo
+*.csproj.user
+RunCSharp/Bin
+RunCSharp/obj
+Mono.CSharp/bin
+Mono.CSharp/obj
+RunCSharp.Web/ClientBin
